@@ -13,6 +13,7 @@ grades <- read.csv(here("grades(1).csv"))
 library(dplyr)
 library(tidyr)
 ```
+
 ## Question 2
 
 ```{r}
@@ -42,6 +43,7 @@ students |>
   slice_head(n = 7) |>
   knitr::kable()
 ```
+
 ```{r}
 library(ggplot2)
 students |>
@@ -50,6 +52,7 @@ students |>
   ggplot(aes(x = factor(group), y = N)) +
   geom_col()
 ```
+
 ## Question 6
 
 ```{r}
@@ -60,6 +63,7 @@ grades |>
   ggplot(aes(x = group, y = avg_grade)) +
   geom_col()
 ```
+
 ## Question 7
 
 ```{r}
@@ -69,9 +73,27 @@ grades |>
 ggplot(aes(x = trimester, y = grades_trim)) + 
   geom_col()
 ```
+
 ## Question 8
 
+```{r}
+grades_per_students <-
+  grades |>
+  group_by(id, group) |>
+  summarise(grades_student = n()) |>
+  summarise(min_grade = min(grades_student), max_grade = max(grades_student), mean_grade = mean(grades_student), med_grade = median(grades_student)) 
+grades_per_students |>
+  slice_head(n = 7) |>
+  knitr::kable()
+```
 
+|               |                  |
+|---------------|------------------|
+| minimum grade | \`r min_grade\`  |
+| maximum grade | \`r max_grade\`  |
+| average grade | \`r mean_grade\` |
+| median grade  | \`r med_grade\`  |
 
+: Summary of grades per student
 
 
