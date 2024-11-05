@@ -1,0 +1,36 @@
+---
+title: "BEZIE"
+author: "Inès Bézie"
+format: html
+---
+
+## Question 1
+
+```{r}
+here::i_am("eval-grades.Rproj")
+library(here)
+grades <- read.csv(here("grades(1).csv"))
+library(dplyr)
+library(tidyr)
+```
+## Question 2
+
+```{r}
+number_grades <- nrow(grades)
+```
+
+The dataset contains `r number_grades` grades.
+
+## Question 3
+
+```{r}
+number_students <-
+  grades |>
+  distinct(id) |>
+  nrow()
+```
+
+The dataset contains `r number_students` students.
+
+
+
