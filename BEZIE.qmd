@@ -128,3 +128,17 @@ df_celestial |>
 
 We observe some variability of the number of grades in Celestial Navigation and Astronomy depending on the group the students are in. Groups 1, 8 and 15 have more grades than group 4 for example.
 
+## Question 12
+
+```{r}
+grades_pivot <-
+  grades |>
+  group_by(id, group, course) |>
+  summarise(average_course = mean(grade)) |>
+  pivot_wider(names_from = "course", values_from = "average_course")
+grades_pivot |>
+  select(id, group, `Ancient Magic and Mysticism`, `Celestial Navigation and Astronomy`) |>
+  slice_head(n = 5) |>
+  knitr::kable()
+```
+
