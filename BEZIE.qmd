@@ -143,6 +143,22 @@ grades_pivot |>
   scale_fill_viridis_c()
 ```
 
+## Question 14
+
+```{r}
+necro_correlation <-
+  grades_pivot |>
+  group_by(group) |>
+  summarise(corr = cor(`Necromancy and Spirit Summoning`,`Illusion and Enchantment`))
+```
+
+## Question 15
+
+```{r}
+necro_correlation |>
+  filter(corr>0) |>
+  ggplot(grades_pivot, aes(y = `Necromancy and Spirit Summoning`, x = `Illusion and Enchantment`)) + geom_point()
+```
 
 
 
