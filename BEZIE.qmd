@@ -50,6 +50,16 @@ students |>
   ggplot(students, aes(x = factor(group), y = N)) +
   geom_bar()
 ```
+## Question 6
+
+```{r}
+grades |>
+  filter(course == "History of the Arcane") |>
+  group_by(group) |>
+  summarise(avg_grade = sum(grade)/n()) |>
+  ggplot(aes(x = group, y = avg_grade)) +
+  geom_col()
+```
 
 
 
