@@ -32,5 +32,15 @@ number_students <-
 
 The dataset contains `r number_students` students.
 
+## Question 4
+
+```{r}
+students <-
+  grades |>
+  distinct(id, group)
+students |>
+  slice_head(n = 7) |>
+  knitr::kable()
+```
 
 
