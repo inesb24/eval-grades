@@ -47,8 +47,8 @@ library(ggplot2)
 students |>
   group_by(group) |>
   summarise(N= n()) |>
-  ggplot(students, aes(x = factor(group), y = N)) +
-  geom_bar()
+  ggplot(aes(x = factor(group), y = N)) +
+  geom_col()
 ```
 ## Question 6
 
@@ -60,6 +60,17 @@ grades |>
   ggplot(aes(x = group, y = avg_grade)) +
   geom_col()
 ```
+## Question 7
+
+```{r}
+grades |>
+  group_by(trimester) |>
+  summarise(grades_trim = n()) |>
+ggplot(aes(x = trimester, y = grades_trim)) + 
+  geom_col()
+```
+## Question 8
+
 
 
 
