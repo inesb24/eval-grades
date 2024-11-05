@@ -87,13 +87,6 @@ grades_per_students |>
   knitr::kable()
 ```
 
-|               |                  |
-|---------------|------------------|
-| minimum grade | \`r min_grade\`  |
-| maximum grade | \`r max_grade\`  |
-| average grade | \`r mean_grade\` |
-| median grade  | \`r med_grade\`  |
-
 : Summary of grades per student
 
 ## Question 9
@@ -141,4 +134,18 @@ grades_pivot |>
   slice_head(n = 5) |>
   knitr::kable()
 ```
+
+## Question 13
+
+```{r}
+grades_pivot |>
+  ggplot(aes(x = `Potion Brewing and Herbology`, y = `Swordsmanship and Martial Arts`, colour = `Swordsmanship and Martial Arts`)) + geom_point(alpha = 0.5) +
+  scale_fill_viridis_c()
+```
+
+
+
+
+
+
 
