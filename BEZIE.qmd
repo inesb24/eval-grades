@@ -42,5 +42,15 @@ students |>
   slice_head(n = 7) |>
   knitr::kable()
 ```
+```{r}
+library(ggplot2)
+students |>
+  group_by(group) |>
+  summarise(N= n()) |>
+  ggplot(students, aes(x = factor(group), y = N)) +
+  geom_bar()
+```
+
+
 
 
