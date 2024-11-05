@@ -118,6 +118,13 @@ df_celestial |>
   ggplot(aes(x = number_cel_grades, y = students_nb)) + 
   geom_col()
 ```
+## Question 11
 
+```{r}
+df_celestial |>
+  ggplot(aes(x = factor(group), y = number_cel_grades)) + 
+  geom_col()
+```
 
+We observe some variability of the number of grades in Celestial Navigation and Astronomy depending on the group the students are in. Groups 1, 8 and 15 have more grades than group 4 for example.
 
