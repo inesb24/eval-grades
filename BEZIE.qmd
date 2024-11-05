@@ -96,4 +96,28 @@ grades_per_students |>
 
 : Summary of grades per student
 
+## Question 9
+```{r}
+df_celestial <-
+  grades |>
+  filter(course == "Celestial Navigation and Astronomy") |>
+  group_by(id, group) |>
+  summarise(number_cel_grades = n())
+df_celestial |>
+  slice_head(n = 7) |>
+  knitr::kable()
+```
+
+## Question 10
+
+```{r}
+df_celestial |>
+  ungroup() |>
+  group_by(number_cel_grades) |>
+  summarise(students_nb = n()) |>
+  ggplot(aes(x = number_cel_grades, y = students_nb)) + 
+  geom_col()
+```
+
+
 
